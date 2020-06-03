@@ -55,6 +55,8 @@ button:hover{
 
 .cardLayout{
     display: grid;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 .cardLayout h1{
     align-self: center;
@@ -63,7 +65,7 @@ button:hover{
 
 .cardLayout__heroCard{
     background: var(--accent1);
-    box-shadow: 3px 3px rgba(53, 50, 52, 0.5);
+    box-shadow: 3px 3px rgba(53, 50, 52, 0.8);
     height: 200px;
     align-content: center;
 }
