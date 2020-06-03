@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>
+        DotaHeroPicker
+    </title>
+    <link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body onload="main()">
+    <div class="header">
+        <div class="header__heroText">DotA 2 Matchup Finder</div>
+        <form class="header__navigationTool" autocomplete="off">
+            <input type="text" name="item">
+            <button>Search for hero</button>
+        </form>
+    </div>
+
+    <div class="cardLayout">
+        <h1>This hero is good against...</h1>
+        <div id="cardLayout___top5">
+            <!-- top 5 cards will go here -->
+        </div>
+        <h1>This hero is countered by...</h1>
+        <div id="cardLayout___bottom5">
+            <!-- bottom 5 cards will go here -->
+        </div>
+    </div>
+    <script src="dotaHeroSearch.js"></script>
+</body>

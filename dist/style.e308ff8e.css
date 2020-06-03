@@ -1,0 +1,42 @@
+body{
+    background: #52524F;
+    color: white;
+    display: grid;
+}
+
+.header{
+    background: #3D3B39;
+    grid-template-rows: 200px;
+    grid-template-columns: auto 1fr;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.header__heroText{
+    padding-left: 40px;
+    padding-bottom: 20px;
+    font-size: 80px;
+    text-shadow: 1px 3px 6px #F2EFDD;
+}
+
+form{
+    display: flex;
+}
+
+input{
+    width: 400px;
+    margin-right: 30px;
+}
+
+button{
+    background: #3D3B39;
+}
+
+button:hover{
+    text-decoration: underline;
+    transition: 0.25s ease-in-out;
+    background: #3D3B39;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
