@@ -41,14 +41,15 @@ function matchupIDSort(data){
 function generateTop(setList){
     let i = 1;
     let top5el = document.getElementById('cardLayout___top5');
-    let top5HTML = [];
+    let top5HTML = ['<h1>This hero is good against...</h1>',];
+    top5el.innerHTML = top5HTML;
     setList.forEach(hero => {
         const searchID = hero.hero_id;
         const targetHero = heroes.find(hero => hero.id === searchID);
         const winPctFormatted = Math.round(hero.win_pct * 100);
         const heroDivHTML = `
             <div class="cardLayout__heroCard" id="top${i}">
-                <h2>${targetHero.localized_name}</h2> <br>
+                <h2>${targetHero.localized_name}</h2>
                 ${winPctFormatted}% win rate - ${hero.wins} wins over ${hero.games_played} games <br>
                 Roles: ${targetHero.roles.join(', ')}
             </div>
@@ -61,16 +62,17 @@ function generateTop(setList){
 }
 
 function generateBottom(setList){
-    let bottom5el = document.getElementById('cardLayout___bottom5');
-    let bottom5HTML = [];
     let j = 1;
+    let bottom5el = document.getElementById('cardLayout___bottom5');
+    let bottom5HTML = ['<h1>This hero is countered by...</h1>',];
+    bottom5el.innerHTML = bottom5HTML;
     setList.forEach(hero => {
         const searchID = hero.hero_id;
         const targetHero = heroes.find(hero => hero.id === searchID);
         const winPctFormatted = Math.round(hero.win_pct * 100);
         const heroDivHTML = `
             <div class="cardLayout__heroCard" id="bottom${j}">
-                <h2>${targetHero.localized_name}</h2> <br>
+                <h2>${targetHero.localized_name}</h2>
                 ${winPctFormatted}% win rate - ${hero.wins} wins over ${hero.games_played} games <br>
                 Roles: ${targetHero.roles.join(', ')}
             </div>
@@ -98,7 +100,7 @@ function heroFetch(e) {
     }
     // convert hero name to hero object in heroes array
     let name = e.currentTarget.item.value;
-    // TODO - auto-capitalize string, including heroes with spaces and dashes in name
+    // TODO- move arrow function outside for better documentation
     const targetHero = heroes.find(hero => hero.localized_name.localeCompare(
         name, undefined, {sensitivity: 'accent'}) === 0);
     if (!targetHero){
