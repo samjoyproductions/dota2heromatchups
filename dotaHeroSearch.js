@@ -14,10 +14,8 @@ function main(){
     fetch(heroIndexURL)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             data.map(hero => heroes.push(hero));
         });
-    console.log('done');
 }
 
 // sort function for fetched matchup data
@@ -56,7 +54,6 @@ function generateTop(setList){
             </div>
         `;
         i++;
-        console.log(heroDivHTML);
         top5HTML.push(heroDivHTML);
     });
     html = top5HTML.join('')
@@ -79,7 +76,6 @@ function generateBottom(setList){
             </div>
         `;
         j++;
-        console.log(heroDivHTML);
         bottom5HTML.push(heroDivHTML);
     });
     html = bottom5HTML.join('')
@@ -101,9 +97,14 @@ function heroFetch(e) {
         }
     }
     // convert hero name to hero object in heroes array
-    const name = e.currentTarget.item.value;
-    console.log(name);
-    const targetHero = heroes.find(hero => hero.localized_name === name);
+    let name = e.currentTarget.item.value;
+    // TODO - auto-capitalize string, including heroes with spaces and dashes in name
+    const targetHero = heroes.find(hero => hero.localized_name.localeCompare(
+        name, undefined, {sensitivity: 'accent'}) === 0);
+    if (!targetHero){
+        alert('hero not found!');
+        return;
+    }
     // set hero ID in the fetch URL for the matchups
     let heroMatchupURL = `https://api.opendota.com/api/heroes/${targetHero.id}/matchups`;
     // fetch matchups, sort by hero win pct, spread into heroMatchups array
